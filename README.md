@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 - The project uses xampp for sql server hosting thus configurations on the server side for database name and table name should be made
 
-- For getting started
+For getting started
 - ```cd backend```
 - ```npm i```
 - ```npm start```
