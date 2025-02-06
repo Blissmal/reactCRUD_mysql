@@ -19,3 +19,6 @@ For getting started
 - ```cd ..```
 - ```npm i```
 - ```npm run dev```
+
+N/B: Be sure to have created a database, add a table and updtate the fields on the server.js file in the backend part
+# Adding the required field soon
