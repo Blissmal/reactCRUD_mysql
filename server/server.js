@@ -7,10 +7,10 @@ app.use(express.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "blissmal",
+    host: "127.0.0.1",
+    user: "blissmal",
+    password: "bliss",
+    database: "bliss",
     dateStrings: 'date'
 });
 
@@ -24,7 +24,7 @@ db.connect((err) => {
 
 // Routes
 app.get('/', (req, res) => {
-    const sql = "SELECT * FROM book";
+    const sql = "SELECT * FROM books";
     db.query(sql, (err, data) => {
         if (err) {
             return res.status(500).json({ error: "Error fetching books" });
@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 
 app.post('/create', (req, res) => {
     const { publisher, name, date } = req.body;
-    const sql = "INSERT INTO book (publisher, name, date) VALUES (?, ?, ?)";
+    const sql = "INSERT INTO books (publisher, name, date) VALUES (?, ?, ?)";
     const values = [publisher, name, date];
     db.query(sql, values, (err, result) => {
         if (err) {
@@ -47,7 +47,7 @@ app.post('/create', (req, res) => {
 
 app.put('/update/:id', (req, res) => {
     const { publisher, name, date } = req.body;
-    const sql = "UPDATE book SET publisher = ?, name = ?, date = ? WHERE id = ?";
+    const sql = "UPDATE books SET publisher = ?, name = ?, date = ? WHERE id = ?";
     const id = req.params.id;
     const values = [publisher, name, date, id];
     db.query(sql, values, (err, result) => {
@@ -59,7 +59,7 @@ app.put('/update/:id', (req, res) => {
 });
 
 app.delete('/delete/:id', (req, res) => {
-    const sql = "DELETE FROM book WHERE id = ?";
+    const sql = "DELETE FROM books WHERE id = ?";
     const id = req.params.id;
     db.query(sql, [id], (err, result) => {
         if (err) {
@@ -71,7 +71,7 @@ app.delete('/delete/:id', (req, res) => {
 
 app.get('/getRecord/:id', (req, res) => {
     const id = req.params.id;
-    const sql = "SELECT * FROM book WHERE id = ?";
+    const sql = "SELECT * FROM books WHERE id = ?";
 
     db.query(sql, [id], (err, data) => {
         if (err) {
