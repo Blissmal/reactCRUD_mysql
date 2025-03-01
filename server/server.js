@@ -54,7 +54,7 @@ app.put('/update/:id', (req, res) => {
         if (err) {
             return res.status(500).json({ error: "Error updating book" });
         }
-        return res.json({ message: "Book updated successfully" });
+        return res.json({ message: "Book updated successfully", result });
     });
 });
 
@@ -65,7 +65,7 @@ app.delete('/delete/:id', (req, res) => {
         if (err) {
             return res.status(500).json({ error: "Error deleting book" });
         }
-        return res.json({ message: "Book deleted successfully" });
+        return res.json({ message: "Book deleted successfully", result });
     });
 });
 
