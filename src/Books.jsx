@@ -7,7 +7,7 @@ const Books = () => {
 
     useEffect(() => {
         axios
-        .get("http://localhost:3030")  // Adjust URL according to your backend API endpoint
+        .get("http://localhost:3030")
         .then(res => setBooks(res.data))
         .catch(err => console.log(err))
     }, [])
