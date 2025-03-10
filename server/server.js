@@ -77,11 +77,11 @@ app.get('/getRecord/:id', (req, res) => {
         if (err) {
             return res.status(500).json({ error: "Error fetching book" });
         }
-        // Check if data exists
+        
         if (data.length === 0) {
             return res.status(404).json({ error: "Book not found" });
         }
-        return res.json(data);  // Return the fetched book data
+        return res.json(data); 
     });
 });
 
