@@ -14,7 +14,7 @@ const Books = () => {
 
     const handleDelete = (id) => {
         axios.delete(`http://localhost:3030/delete/${id}`)
-        .then(res => window.location.reload())
+        .then(() => window.location.reload())
         .catch(err => console.log(err))
     }
 
