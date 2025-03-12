@@ -22,7 +22,6 @@ db.connect((err) => {
     console.log("successful connection !");
 });
 
-// Routes
 app.get('/', (req, res) => {
     const sql = "SELECT * FROM books";
     db.query(sql, (err, data) => {
