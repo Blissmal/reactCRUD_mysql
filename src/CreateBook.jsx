@@ -16,8 +16,7 @@ const CreateBook = () => {
     axios
       .post("http://localhost:3030/create", values)
       .then((res) => {
-        console.log(res.data); // Assuming you want to log the response data
-        // Optionally, you can reset the form values after successful submission
+        console.log(res.data);
         setValues({
           publisher: "",
           name: "",
