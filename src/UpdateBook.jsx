@@ -29,7 +29,7 @@ const UpdateBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put("http://localhost:3030/update/" + id, values) // Adjust URL for your update endpoint
+      .put(`http://localhost:3030/update/${id}`, values) // Adjust URL for your update endpoint
       .then((res) => {
         console.log("Book updated successfully:", res.data);
         navigate("/");
